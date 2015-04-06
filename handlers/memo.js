@@ -50,6 +50,8 @@ function _findMemo(where, callback){
 }
 
 function _updateMemo(where, body, callback){
+    body = typeof body === 'string' ? JSON.parse(body) : body;
+
     db.update(where, {$set: body}, {multi: true}, callback);
 }
 
